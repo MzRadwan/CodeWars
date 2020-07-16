@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class SquareDigit {
+
+    public static void main(String[] args){
+
+        System.out.println("Enter the number:");
+        Scanner scan = new Scanner(System.in);
+        int num = scan.nextInt();
+
+        System.out.println(squareDigit(num));
+
+    }
+
+    public static int squareDigit(int number){
+
+        String givenString = Integer.toString(number);
+        String returnedString = "";
+        //System.out.println(givenString);
+        for(int i  = 0; i < givenString.length(); i++){
+            String var = givenString.substring(i,i+1);
+            int valueOfVar = Integer.valueOf(var);
+            int squaredValue = valueOfVar * valueOfVar;
+            returnedString += Integer.toString(squaredValue);
+            //System.out.println(returnedString);
+        }
+
+        number = Integer.valueOf(returnedString);
+
+        return number;
+    }
+}
