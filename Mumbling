@@ -1,0 +1,31 @@
+import javax.swing.plaf.synth.SynthTextAreaUI;
+
+public class Mumbling {
+
+    public static void main(String []args){
+        String example = "abkGHEvgvCcD";
+
+        System.out.println(accum(example));
+
+    }
+
+    public static String accum(String givenString){
+        String solution = "";
+        for(int i=0; i< givenString.length(); i++){
+            String var = givenString.substring(i, i+1);
+            String varMultiplied = "";
+            for(int j = 0; j <=i; j++)
+                varMultiplied += var;
+
+            var = varMultiplied.substring(0,1).toUpperCase() ;
+            if (varMultiplied.length() > 0)
+                var += varMultiplied.substring(1,varMultiplied.length()).toLowerCase();
+
+            solution += var;
+            solution += "-";
+
+        }
+
+        return solution.substring(0,solution.length()-1);
+    }
+}
