@@ -1,0 +1,28 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Tribonacci {
+
+    public static void main(String[] args){
+        Integer[] starter = {0,1,1};
+        int n = 15;
+        List<Integer> tri = genTri(starter,n);
+        for(Integer i : tri){
+            System.out.println(i);
+        }
+
+    
+    }
+
+    public static List<Integer> genTri(Integer[] starter, int n){
+        List<Integer> tri = new ArrayList<>();
+        for (int i : starter){
+            tri.add(i);
+        }
+        for (int i = 3; i<n; i++){
+            int newEl = tri.get(i-1) + tri.get(i-2) + tri.get(i-3);
+            tri.add(newEl);
+        }
+        return tri;
+    }
+}
