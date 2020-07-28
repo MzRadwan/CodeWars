@@ -1,0 +1,37 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Cola {
+
+    public static void main (String[] args){
+        String[] names =
+                {"Sheldon", "Leonard", "Penny","Rajesh", "Howard"};
+
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+
+        System.out.println(WhoIsNext(names,n));
+    }
+/*
+  this simple algorithm works properly when it comes to producing output, 
+  however it's not efficient enough to work when n is a big number
+*/
+    public static String WhoIsNext(String[] names, int n){
+
+        List<String> queue = new ArrayList<>();
+        for (String s : names){
+            queue.add(s);
+        }
+
+        for (int i =1; i< n; i++){
+            String first = queue.get(0);
+            queue.add(first);
+            queue.add(first);
+            queue.remove(0);
+
+        }
+
+        return queue.get(0);
+    }
+}
